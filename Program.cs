@@ -230,6 +230,7 @@
                 Console.WriteLine("-------------------------------------------------");
             }
         }
+        
         public static void DisplayAllFlights()
         {
             if (FlightCounter == 0)
@@ -237,9 +238,30 @@
                 Console.WriteLine("No flights available.");
                 return;
             }
-            for (int i = 0; i < FlightCounter; i++)
+            for (int i = 0; i<FlightCounter; i++)
             {
                 Console.WriteLine($"Flight Code {flightCodeArray[i]}, From {fromCityArray[i]}, To {toCityArray[i]}, Departure Time is {departureTimeArray[i]}, Duration time is {durationArray[i]} ");
+                Console.WriteLine("-------------------------------------------------");
+            }
+        }
+        //display all flights list
+        public static void DisplayAllFlightsList2()
+        {
+            List<string> flightCodeList = new List<string>();
+            List<string> fromCityList = new List<string>();
+            List<string> toCityList = new List<string>();
+            List<DateTime> departureTimeList = new List<DateTime>();
+            List<int> durationList = new List<int>();
+            List<string> passengerNameList = new List<string>();
+            List<string> GenerateBookingIDList = new List<string>();
+            if (flightCodeList.Count == 0)
+            {
+                Console.WriteLine("No flights available.");
+                return;
+            }
+            for (int i = 0; i < flightCodeList.Count; i++)
+            {
+                Console.WriteLine($"Flight Code {flightCodeList[i]}, From {fromCityList[i]}, To {toCityList[i]}, Departure Time is {departureTimeList[i]}, Duration time is {durationList[i]} ");
                 Console.WriteLine("-------------------------------------------------");
             }
         }
@@ -290,7 +312,7 @@
             return newDeparture.ToString();
         }
 
-        
+
         public static string CancelFlightBooking(out string passengerName)
         {
             if (ConfirmAction("Cancel Booking"))
@@ -353,18 +375,18 @@
         {
             Console.WriteLine("Enter Fight code:");
             flightCode = Console.ReadLine();
-            for (int i = 0; i < FlightCounter; i++)
+            for (int i = 0; i<FlightCounter; i++)
             {
                 if (flightCodeArray[i] == flightCode)
                 {
                     passengerNameArray[i] = passengerName;
                     GenerateBookingIDArray[i] = GenerateBookingID(passengerName);
-                    Console.WriteLine("Booking ID: " + GenerateBookingIDArray[i]);
+        Console.WriteLine("Booking ID: " + GenerateBookingIDArray[i]);
                     Console.WriteLine("Flight booked successfully");
                     return;
                 }
-            }
-            Console.WriteLine("Flight not found");
+}
+Console.WriteLine("Flight not found");
         }
         // BookFlight List
         public static void BookFlightList(string passengerName, string flightCode = "Default001")
